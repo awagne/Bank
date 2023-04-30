@@ -1,19 +1,32 @@
+from random import random
+
 class Account:
 
     owner = ""
-    type = ""
     checkings = 0
     savings = 0
+    accountNum = 0
 
-    def __init__(self, owner, accountType):
+    def __init__(self, owner):
         self.owner = owner
-        self.type = accountType
-        self.balance = 0
+        self.checkings = 0
+        self.savings = 0
+        self.accountNum = random() * 100000000000000000 + 10000000
+
+
+    def getCheckings(self):
+        return self.checkings
+    
+    def getSavings(self):
+        return self.savings
+    
+    def getNum(self):
+        return self.accountNum
 
     def deposit(self, value, account):
         if(value >= 0):
             if(account == 'c'):
-                self.balance += value
+                self.checkings += value
             if(account == 's'):
                 self.savings += value
             return True
@@ -24,6 +37,12 @@ class Account:
             self.balance -= value
             return True
         return False
+    
+    def display(self):
+        print("Account Holder: " + self.owner)
+        print("Account Number: " + str(self.accountNum))
+        print("Checkings Balance: " + str(self.checkings))
+        print("Savings Balance: " + str(self.savings))
     
 
         
