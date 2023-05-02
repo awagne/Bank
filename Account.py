@@ -11,9 +11,11 @@ class Account:
         self.owner = owner
         self.checkings = 0
         self.savings = 0
-        self.accountNum = random() * 100000000000000000 + 10000000
+        self.accountNum = int(random() * 100000000000000000 + 10000000)
 
-
+    def getOwner(self):
+        return self.owner
+    
     def getCheckings(self):
         return self.checkings
     
