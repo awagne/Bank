@@ -34,9 +34,12 @@ class Account:
             return True
         return False
 
-    def withdraw(self, value):
-        if(value <= self.balance):
-            self.balance -= value
+    def withdraw(self, value, account):
+        if(value >= 0):
+            if(account == 'c' and value <= self.checkings):
+                self.checkings -= value
+            if(account == 's' and value <= self.savings):
+                self.savings -= value
             return True
         return False
     
