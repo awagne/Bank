@@ -20,7 +20,7 @@ class Bank:
 
     def getAccount(self,name, accountNum):
         for account in self.accounts:
-            if(account.getOwner == name and account.getNum() == accountNum):
+            if(account.getOwner() == name and account.getNum() == int(accountNum)):
                 return account
             
         return None
